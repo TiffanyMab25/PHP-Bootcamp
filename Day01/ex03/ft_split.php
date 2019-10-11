@@ -1,4 +1,4 @@
-#!usr/bin/php
+#!/usr/bin/php
 <?php
 /* ************************************************************************** */
 /*                                                                            */
@@ -14,10 +14,8 @@
 
 function ft_split($str)
 {
-    $my_str = explode(" ", $str);
-    $my_tab = array_filter($my_str);
-    sort($mytab);
-    prin $my_tab[0];
-    print_r(ft_split("Hello World    AAA"));
+	$my_str = array_filter(explode(" ", $str)); 
+	sort($my_str);
+	return $my_str;
 }
 ?>

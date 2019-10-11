@@ -1,4 +1,4 @@
-#!usr/bin/php
+#!/usr/bin/php
 <?php
 
 # **************************************************************************** #
@@ -13,26 +13,30 @@
 #                                                                              #
 # **************************************************************************** #
 
-$content = fopen('php://stdin', 'r');
-echo  "Enter a number: ";
-$number = trim(fgets($content));
-
-if(is_numeric($number))
-{ 
-    if($number % 2 == 0)
+while(1) /*while its true. It will alwaus coninue */
+{
+    echo  "Enter a number: ";
+    $content = fopen('php://stdin', 'r');
+    $number = trim(fgets($content));
+    if(is_numeric($number))
     { 
-        echo "The number ".$number." is even\n";  
-    } 
-    else
-    { 
-        echo "The number ".$number." is odd\n";
+        if($number % 2 == 0)
+        { 
+            echo "The number ".$number." is even\n";  
+        } 
+        else
+        { 
+            echo "The number ".$number." is odd\n";
 
-    } 
-}
-    else
-    {
-        echo " '$number' is not a number\n";
+        } 
     }
-
-
+        else if(feof($content)){
+            echo "^D\n"; /*terminates the program */
+            break;
+        }
+        else
+        {
+            echo " '$number' is not a number\n";
+        }
+}
 ?>
