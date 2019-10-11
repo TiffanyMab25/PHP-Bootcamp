@@ -3,21 +3,30 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    epur_str.php                                       :+:      :+:    :+:    #
+#    ssap.php                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: tmabunda <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/11 12:04:01 by tmabunda          #+#    #+#              #
-#    Updated: 2019/10/11 12:04:01 by tmabunda         ###   ########.fr        #
+#    Created: 2019/10/11 14:32:27 by tmabunda          #+#    #+#              #
+#    Updated: 2019/10/11 14:32:27 by tmabunda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-if ($argc != 2)
-    exit (0);
-$str = $argv[1];
-if (is_string($str))
+
+$i = 1;
+$str = "";
+while($i < $argc)
 {
-    $arr = preg_split("/[\s,]+/", $str);
-    echo implode(" ",$arr);
-    echo ("\n");
+    $str = $str." ".$argv[$i];
+    $i++;
 }
+$words = preg_split('/\s+/', trim($str));
+sort($words);
+foreach($words as $word)
+{
+    echo($word);
+    echo("\n");
+
+}
+
 ?>
+ 
